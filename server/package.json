@@ -1,0 +1,8 @@
+{
+  "name": "Backend",
+  "version": "0.0.1",
+  "description": "Web backend",
+  "main": "index.js",
+  "author": "Andrey Mora",
+  "license": "MIT"
+}
