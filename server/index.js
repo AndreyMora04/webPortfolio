@@ -28,11 +28,7 @@ mongoose.connect(`mongodb://${IP_Server}:${portDB}/${dbName}`, {
         throw err;
     } else {
         console.log('Conectado');
-        app.listen(port, () => {
-
-
-
-        });
+        app.listen(port, () => {});
     }
 
 });
