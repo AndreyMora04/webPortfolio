@@ -15,6 +15,9 @@ const {
     dbName
 } = require('./config');
 
+//Solution when we want to update a register.
+mongoose.set('useFindAndModify', false);
+
 //Database connection with mongoose.
 mongoose.connect(`mongodb://${IP_Server}:${portDB}/${dbName}`, {
     useNewUrlParser: true,
