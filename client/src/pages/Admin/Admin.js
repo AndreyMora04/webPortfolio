@@ -1,5 +1,9 @@
 import React from 'react';
 
-export default function admin() {
-	return <h1>Estamos en admin!</h1>;
+export default function Admin() {
+	return (
+		<div>
+			<h1>Estamos en admin!</h1>
+		</div>
+	);
 }
