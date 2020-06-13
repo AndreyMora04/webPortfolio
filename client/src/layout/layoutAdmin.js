@@ -1,10 +1,31 @@
 import React from 'react';
-import { layout } from 'antd';
-export default function layoutAdmin() {
+import { Route, Switch } from 'react-router-dom';
+import { Layout } from 'antd';
+import './layoutAdmin.scss';
+
+export default function layoutAdmin(props) {
+	const { routes } = props;
+	const { Header, Content, Footer } = Layout;
+
 	return (
-		<layout>
+		<Layout>
 			<h2>Menu Sider </h2>
-			<div>Contenido</div>
-		</layout>
+			<Layout>
+				<Header>Header</Header>
+				<Content>
+					<LoadRoutes routes={routes} />
+				</Content>
+				<Footer>Kevin Andrey </Footer>
+			</Layout>
+		</Layout>
+	);
+}
+function LoadRoutes({ routes }) {
+	return (
+		<Switch>
+			{routes.map((route, index) => (
+				<Route key={index} path={route.path} exact={route.exact} component={route.component} />
+			))}
+		</Switch>
 	);
 }

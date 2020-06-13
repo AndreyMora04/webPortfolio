@@ -9,10 +9,14 @@ function App() {
 		</Router>
 	);
 }
-
 function RouteWithSubRoutes(route) {
-	console.log(route);
-	return true;
+	return (
+		<Route
+			path={route.path}
+			exact={route.exact}
+			render={(props) => <route.component routes={route.routes} {...props} />}
+		/>
+	);
 }
 
 export default App;

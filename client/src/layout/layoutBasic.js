@@ -1,11 +1,30 @@
-import react from 'react';
+import React from 'react';
 import { Layout } from 'antd';
+import { Route, Switch } from 'react-router-dom';
+import './layoutBasic.scss';
 
-export default function layoutBasic() {
+export default function LayoutBasic(props) {
+	const { routes } = props;
+	const { Content, Footer } = Layout;
+
 	return (
 		<Layout>
 			<h2>Menu Sider </h2>
-			<div>Contenido</div>
+			<Layout>
+				<Content>
+					<LoadRoutes routes={routes} />
+				</Content>
+			</Layout>
 		</Layout>
+	);
+}
+
+function LoadRoutes({ routes }) {
+	return (
+		<Switch>
+			{routes.map((route, index) => (
+				<Route key={index} path={route.path} exact={route.exact} component={route.component} />
+			))}
+		</Switch>
 	);
 }
